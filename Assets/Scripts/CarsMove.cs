@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class CarsMove : MonoBehaviour
 {
-    private float speed = 3f;
+    private static float speed = 3f;
     private Rigidbody _rb;
+    Car otherCar = new Car(speed);
     // Start is called before the first frame update
     void Start()
     {
+        
         _rb = GetComponent<Rigidbody>();
     }
 
@@ -21,7 +23,7 @@ public class CarsMove : MonoBehaviour
     }
     private void FixedUpdate() {
         _rb.MovePosition(this.transform.position + 
-                        this.transform.right * speed * 
+                        this.transform.right * otherCar.speedBoost * 
                         Time.fixedDeltaTime);
         if(this.transform.position.y < -15f)
         {
