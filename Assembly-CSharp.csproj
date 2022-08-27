@@ -36,11 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\MoveRoad.cs" />
      <Compile Include="Assets\Scripts\GameCtrl.cs" />
      <Compile Include="Assets\2D_urban_cars\scripts\SplashBehaviour.cs" />
      <Compile Include="Assets\2D_urban_cars\scripts\SceneLoaderBehaviour.cs" />
      <Compile Include="Assets\Scripts\PlayerCtrl.cs" />
+     <Compile Include="Assets\Scripts\CarsMove.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

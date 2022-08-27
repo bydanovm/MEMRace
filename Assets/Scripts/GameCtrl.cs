@@ -10,12 +10,16 @@ public class GameCtrl : MonoBehaviour
     private GameObject spawnRoad;
     private Transform newRoadTF;
     private Transform spawnRoadTF;
+    public GameObject[] cars;
+    private float[] positions = { 1.9f, 0.66f, -0.66f, -1.9f };
     // Start is called before the first frame update
     void Start()
     {
         // Создаем дорогу при старте из префаба
         newRoad = Instantiate(road, new Vector3(0f, 2.3f, 0f), this.transform.rotation);
         spawnRoad = Instantiate(road, new Vector3(0f, 17.66f, 0f), this.transform.rotation);
+
+        StartCoroutine(spawn());
     }
 
     // Update is called once per frame
@@ -36,7 +40,18 @@ public class GameCtrl : MonoBehaviour
             Destroy(spawnRoad);
             spawnRoad = Instantiate(road, new Vector3(0f, 15.70f, 0f), this.transform.rotation);
         }
+    }
 
-
+    IEnumerator spawn()
+    {
+        while(true) 
+        {
+            Instantiate(
+                cars[Random.Range(0, cars.Length)],
+                new Vector3(positions[Random.Range(0, positions.Length)], 8f, 0),
+                Quaternion.Euler(new Vector3(0, 0, 270))
+                );
+            yield return new WaitForSeconds(2.5f);
+        }
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     private float vInput, hInput;
+    private float hSpeed = 3f;
+    private float vSpeed = 5f;
     private Rigidbody _rb;
     private Vector3 _vc3;
     // Start is called before the first frame update
@@ -23,10 +25,10 @@ public class PlayerCtrl : MonoBehaviour
         // Обработка движения машинки
         _vc3 = new Vector3((this.transform.position - 
                         this.transform.up * hInput * 
-                        Time.fixedDeltaTime).x,
+                        hSpeed * Time.fixedDeltaTime).x,
                         (this.transform.position + 
                         this.transform.right * vInput * 
-                        Time.fixedDeltaTime).y,
+                        vSpeed * Time.fixedDeltaTime).y,
                         0f);
         _rb.MovePosition(_vc3);
     }
